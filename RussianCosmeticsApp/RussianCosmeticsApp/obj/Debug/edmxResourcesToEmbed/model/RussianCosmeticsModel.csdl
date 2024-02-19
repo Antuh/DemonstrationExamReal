@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RussianCosmeticsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ID_Clients" />
+    </Key>
+    <Property Name="ID_Clients" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameCompany" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Addres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="INN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Payment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BIK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FIO_Head" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FIO_Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneContact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailPhysical" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PasswordPhysical" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FIOPhysical" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateBirthPhysical" Type="DateTime" Precision="0" />
+    <Property Name="SeriaPassportPhysical" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NumberPassportPhysical" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhonePhysicale" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CompleteService">
+    <Key>
+      <PropertyRef Name="ID_CompleteService" />
+    </Key>
+    <Property Name="ID_CompleteService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Service" Type="Int32" />
+    <Property Name="ID_Personal" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Personal" Relationship="Self.FK_CompleteService_Personal" FromRole="CompleteService" ToRole="Personal" />
+    <NavigationProperty Name="Service" Relationship="Self.FK_CompleteService_Service" FromRole="CompleteService" ToRole="Service" />
+    <NavigationProperty Name="Personal1" Relationship="Self.FK_Personal_CompleteService" FromRole="CompleteService" ToRole="Personal" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="ID_Order" />
+    </Key>
+    <Property Name="ID_Order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateCreate" Type="DateTime" Precision="0" />
+    <Property Name="ID_Service" Type="Int32" />
+    <Property Name="StatusOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StatusService" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TimeComplete" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CostOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Service" Relationship="Self.FK_Order_Service" FromRole="Order" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="OtherPersonal">
+    <Key>
+      <PropertyRef Name="ID_OtherPersonal" />
+    </Key>
+    <Property Name="ID_OtherPersonal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateTimeEntrance" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Personal">
+    <Key>
+      <PropertyRef Name="ID_Personal" />
+    </Key>
+    <Property Name="ID_Personal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateTimeEntrance" Type="DateTime" Precision="3" />
+    <Property Name="ID_Service" Type="Int32" />
+    <Property Name="ID_CompleteService" Type="Int32" />
+    <NavigationProperty Name="CompleteService" Relationship="Self.FK_CompleteService_Personal" FromRole="Personal" ToRole="CompleteService" />
+    <NavigationProperty Name="CompleteService1" Relationship="Self.FK_Personal_CompleteService" FromRole="Personal" ToRole="CompleteService" />
+    <NavigationProperty Name="Service" Relationship="Self.FK_Personal_Service" FromRole="Personal" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ID_Service" />
+    </Key>
+    <Property Name="ID_Service" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CodeService" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Period" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Deviation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CompleteService" Relationship="Self.FK_CompleteService_Service" FromRole="Service" ToRole="CompleteService" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Service" FromRole="Service" ToRole="Order" />
+    <NavigationProperty Name="Personal" Relationship="Self.FK_Personal_Service" FromRole="Service" ToRole="Personal" />
+  </EntityType>
+  <Association Name="FK_CompleteService_Personal">
+    <End Role="Personal" Type="Self.Personal" Multiplicity="0..1" />
+    <End Role="CompleteService" Type="Self.CompleteService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="ID_Personal" />
+      </Principal>
+      <Dependent Role="CompleteService">
+        <PropertyRef Name="ID_Personal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompleteService_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+    <End Role="CompleteService" Type="Self.CompleteService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID_Service" />
+      </Principal>
+      <Dependent Role="CompleteService">
+        <PropertyRef Name="ID_Service" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personal_CompleteService">
+    <End Role="CompleteService" Type="Self.CompleteService" Multiplicity="0..1" />
+    <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompleteService">
+        <PropertyRef Name="ID_CompleteService" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="ID_CompleteService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID_Service" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ID_Service" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personal_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+    <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID_Service" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="ID_Service" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RussianCosmeticssEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clients" EntityType="Self.Clients" />
+    <EntitySet Name="CompleteService" EntityType="Self.CompleteService" />
+    <EntitySet Name="Order" EntityType="Self.Order" />
+    <EntitySet Name="OtherPersonal" EntityType="Self.OtherPersonal" />
+    <EntitySet Name="Personal" EntityType="Self.Personal" />
+    <EntitySet Name="Service" EntityType="Self.Service" />
+    <AssociationSet Name="FK_CompleteService_Personal" Association="Self.FK_CompleteService_Personal">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="CompleteService" EntitySet="CompleteService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompleteService_Service" Association="Self.FK_CompleteService_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="CompleteService" EntitySet="CompleteService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personal_CompleteService" Association="Self.FK_Personal_CompleteService">
+      <End Role="CompleteService" EntitySet="CompleteService" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Service" Association="Self.FK_Order_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personal_Service" Association="Self.FK_Personal_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

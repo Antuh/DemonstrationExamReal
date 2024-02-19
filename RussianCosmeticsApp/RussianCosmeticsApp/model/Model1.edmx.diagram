@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="837afb5bc47643bd828e6a63408bddc4" Name="Diagram1">
+        <EntityTypeShape EntityType="RussianCosmeticsModel.Clients" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RussianCosmeticsModel.CompleteService" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RussianCosmeticsModel.Order" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RussianCosmeticsModel.OtherPersonal" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RussianCosmeticsModel.Personal" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RussianCosmeticsModel.Service" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="RussianCosmeticsModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="RussianCosmeticsModel.FK_CompleteService_Personal" ManuallyRouted="false" />
+        <AssociationConnector Association="RussianCosmeticsModel.FK_CompleteService_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="RussianCosmeticsModel.FK_Personal_CompleteService" ManuallyRouted="false" />
+        <AssociationConnector Association="RussianCosmeticsModel.FK_Order_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="RussianCosmeticsModel.FK_Personal_Service" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

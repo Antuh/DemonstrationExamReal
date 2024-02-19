@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище RussianCosmeticsModelContainer" CdmEntityContainer="RussianCosmeticsEntities">
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="RussianCosmeticsModel.Clients">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="ID_Clients" ColumnName="ID_Clients" />
+          <ScalarProperty Name="NameCompany" ColumnName="NameCompany" />
+          <ScalarProperty Name="Addres" ColumnName="Addres" />
+          <ScalarProperty Name="INN" ColumnName="INN" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="BIK" ColumnName="BIK" />
+          <ScalarProperty Name="FIO_Head" ColumnName="FIO_Head" />
+          <ScalarProperty Name="FIO_Contact" ColumnName="FIO_Contact" />
+          <ScalarProperty Name="PhoneContact" ColumnName="PhoneContact" />
+          <ScalarProperty Name="EmailPhysical" ColumnName="EmailPhysical" />
+          <ScalarProperty Name="PasswordPhysical" ColumnName="PasswordPhysical" />
+          <ScalarProperty Name="FIOPhysical" ColumnName="FIOPhysical" />
+          <ScalarProperty Name="DateBirthPhysical" ColumnName="DateBirthPhysical" />
+          <ScalarProperty Name="SeriaPassportPhysical" ColumnName="SeriaPassportPhysical" />
+          <ScalarProperty Name="NumberPassportPhysical" ColumnName="NumberPassportPhysical" />
+          <ScalarProperty Name="PhonePhysicale" ColumnName="PhonePhysicale" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompleteService">
+      <EntityTypeMapping TypeName="RussianCosmeticsModel.CompleteService">
+        <MappingFragment StoreEntitySet="CompleteService">
+          <ScalarProperty Name="ID_CompleteService" ColumnName="ID_CompleteService" />
+          <ScalarProperty Name="ID_Service" ColumnName="ID_Service" />
+          <ScalarProperty Name="ID_Personal" ColumnName="ID_Personal" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="RussianCosmeticsModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="ID_Order" ColumnName="ID_Order" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+          <ScalarProperty Name="ID_Service" ColumnName="ID_Service" />
+          <ScalarProperty Name="StatusOrder" ColumnName="StatusOrder" />
+          <ScalarProperty Name="StatusService" ColumnName="StatusService" />
+          <ScalarProperty Name="TimeComplete" ColumnName="TimeComplete" />
+          <ScalarProperty Name="CostOrder" ColumnName="CostOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OtherPersonal">
+      <EntityTypeMapping TypeName="RussianCosmeticsModel.OtherPersonal">
+        <MappingFragment StoreEntitySet="OtherPersonal">
+          <ScalarProperty Name="ID_OtherPersonal" ColumnName="ID_OtherPersonal" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="DateTimeEntrance" ColumnName="DateTimeEntrance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personal">
+      <EntityTypeMapping TypeName="RussianCosmeticsModel.Personal">
+        <MappingFragment StoreEntitySet="Personal">
+          <ScalarProperty Name="ID_Personal" ColumnName="ID_Personal" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="DateTimeEntrance" ColumnName="DateTimeEntrance" />
+          <ScalarProperty Name="ID_Service" ColumnName="ID_Service" />
+          <ScalarProperty Name="ID_CompleteService" ColumnName="ID_CompleteService" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Service">
+      <EntityTypeMapping TypeName="RussianCosmeticsModel.Service">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="ID_Service" ColumnName="ID_Service" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="CodeService" ColumnName="CodeService" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="Deviation" ColumnName="Deviation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
