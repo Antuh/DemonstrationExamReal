@@ -66,10 +66,10 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <RadioButton Grid.Row="0" Grid.Column="1" GroupName="userType" Content="Юр. лицо" IsChecked="True" FontSize="16"/>
-            <RadioButton Grid.Row="1" Grid.Column="1" GroupName="userType" Content="Физ. лицо" FontSize="16" />
+            <RadioButton Grid.Row="0" Grid.Column="1" GroupName="userType" Name="rb_YRL" Content="Юр. лицо" IsChecked="True" FontSize="16"/>
+            <RadioButton Grid.Row="1" Grid.Column="1" GroupName="userType" Name="rb_FIZL" Content="Физ. лицо" FontSize="16" />
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Заказчик:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24" Padding="8"></TextBlock>
-            <Button Grid.Column="2" Padding="4" Content="Добавить" Margin="4" FontFamily="Berlin Sans FB" Background="#FFB3A4E8" BorderBrush="White" Foreground="White" FontSize="16"/>
+            <Button Grid.Column="2" Padding="4" Content="Добавить" Margin="4" FontFamily="Berlin Sans FB" Background="#FFB3A4E8" BorderBrush="White" Foreground="White" FontSize="16" Click="Button_Click"/>
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="2">
@@ -96,6 +96,13 @@
                     <DataGridTextColumn Header="Серия паспорта" Binding="{Binding SeriaPassportPhysical}"/>
                     <DataGridTextColumn Header="Номер паспорта" Binding="{Binding NumberPassportPhysical}"/>
                     <DataGridTextColumn Header="Номер телефона" Binding="{Binding PhonePhysicale}"/>
+                    <DataGridTemplateColumn Width="80">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Изменить" Name="btChange" FontFamily="Bahnschrift" FontSize="10" Background="#FF333037" Foreground="White" Click="btChange_Click"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
 

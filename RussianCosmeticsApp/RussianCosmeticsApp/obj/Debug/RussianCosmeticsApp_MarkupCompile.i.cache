@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\ostas\source\repos\RussianCosmeticsApp\RussianCosmeticsApp\obj\Debug\
+D:\Programmirovanie\Program\DemonstrationExamReal\RussianCosmeticsApp\RussianCosmeticsApp\obj\Debug\
 RussianCosmeticsApp
 none
 false
 DEBUG;TRACE
-C:\Users\ostas\source\repos\RussianCosmeticsApp\RussianCosmeticsApp\App.xaml
-4-1507390475
+D:\Programmirovanie\Program\DemonstrationExamReal\RussianCosmeticsApp\RussianCosmeticsApp\App.xaml
+5-957450778
 2-1147362915
-19-676690897
-181854221399
-MainWindow.xaml;pages\AddOrderPage.xaml;pages\OrderPage.xaml;windows\AddClient.xaml;
+20-1845513230
+18189342721
+MainWindow.xaml;pages\AddEditClientPage.xaml;pages\AddOrderPage.xaml;pages\OrderPage.xaml;windows\AddClient.xaml;
 
-False
+True
 

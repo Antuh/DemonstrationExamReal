@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Programmirovanie\Program\DemonstrationExamReal\RussianCosmeticsApp\RussianCosmeticsApp\App.xaml
-4-1507390475
+5-957450778
 2-1147362915
-181405397721
+19236575388
 18189342721
-MainWindow.xaml;pages\AddOrderPage.xaml;pages\OrderPage.xaml;windows\AddClient.xaml;
+MainWindow.xaml;pages\AddEditClientPage.xaml;pages\AddOrderPage.xaml;pages\OrderPage.xaml;windows\AddClient.xaml;
 
 False
 

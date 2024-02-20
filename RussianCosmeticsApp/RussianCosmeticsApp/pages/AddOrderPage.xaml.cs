@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.SqlServer.Server;
 using RussianCosmeticsApp.model;
 
 namespace RussianCosmeticsApp.pages
@@ -94,6 +95,30 @@ namespace RussianCosmeticsApp.pages
                     }
                 }
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string selectedValue = "";
+
+            // Проверяем, какая радио-кнопка выбрана
+            if (rb_YRL.IsChecked == true)
+            {
+                selectedValue = rb_YRL.Content.ToString();
+            }
+            else if (rb_FIZL.IsChecked == true)
+            {
+                selectedValue = rb_FIZL.Content.ToString();
+            }
+
+            // Передача значения в другую форму
+            AddEditClientPage nextPage = new AddEditClientPage(null, selectedValue);
+            NavigationService.Navigate(nextPage);
+        }
+
+        private void btChange_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddEditClientPage(dg_Clients.SelectedItem as Clients, null));
         }
     }
 }

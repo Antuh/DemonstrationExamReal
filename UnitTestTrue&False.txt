@@ -1,0 +1,75 @@
+using NUnit.Framework;
+using SF2022UserNNLib; // Пространство имён, где находится SF2022User{NN}Lib.dll
+using System;
+
+namespace YourUnitTestProjectNamespace
+{
+    [TestFixture]
+    public class AvailablePeriodsTests
+    {
+        [Test]
+        public void AvailablePeriods_ReturnsCorrectPeriods()
+        {
+            // Устанавливаем входные данные
+            TimeSpan[] startTimes = new TimeSpan[]
+            {
+                new TimeSpan(10, 0, 0),   // Время начала 1: 10:00
+                new TimeSpan(11, 0, 0),   // Время начала 2: 11:00
+                new TimeSpan(15, 0, 0),   // Время начала 3: 15:00
+                new TimeSpan(15, 30, 0),  // Время начала 4: 15:30
+                new TimeSpan(16, 50, 0)   // Время начала 5: 16:50
+            };
+
+            int[] durations = new int[]
+            {
+                60,   // Продолжительность для времени начала 1 (в минутах): 60
+                30,   // Продолжительность для времени начала 2 (в минутах): 30
+                10,   // Продолжительность для времени начала 3 (в минутах): 10
+                10,   // Продолжительность для времени начала 4 (в минутах): 10
+                40    // Продолжительность для времени начала 5 (в минутах): 40
+            };
+
+            TimeSpan beginWorkingTime = new TimeSpan(8, 0, 0); // Время начала рабочего дня: 08:00
+            TimeSpan endWorkingTime = new TimeSpan(18, 0, 0);  // Время окончания рабочего дня: 18:00
+            int consultationTime = 30; // Время консультации (в минутах): 30
+
+            // Ожидаемые результаты
+            string[] expectedPeriods = new string[]
+            {
+                "10:00 - 11:00",   // Доступный период для времени начала 1
+                "10:30 - 11:30",   // Доступный период для времени начала 1 с учётом времени консультации
+                "11:00 - 11:30",   // Доступный период для времени начала 2
+                "11:30 - 12:00",   // Доступный период для времени начала 2 с учётом времени консультации
+                "15:00 - 15:10",   // Доступный период для времени начала 3
+                "15:30 - 15:40",   // Доступный период для времени начала 4
+                "16:50 - 17:30"    // Доступный период для времени начала 5
+            };
+
+            // Вызываем тестируемый метод
+            string[] actualPeriods = Calculations.AvailablePeriods(startTimes, durations, beginWorkingTime, endWorkingTime, consultationTime);
+
+            // Проверяем результаты
+            Assert.AreEqual(expectedPeriods, actualPeriods);
+        }
+
+        [Test]
+        public void AvailablePeriods_ThrowsExceptionWhenStartTimesOutOfRange()
+        {
+            // Устанавливаем некорректное время начала, выходящее за пределы рабочего дня
+            TimeSpan[] startTimes = new TimeSpan[]
+            {
+                new TimeSpan(7, 0, 0),    // Время начала 1: 07:00 (за пределами рабочего дня)
+                new TimeSpan(10, 0, 0)    // Время начала 2: 10:00 (внутри рабочего дня)
+            };
+
+            int[] durations = new int[] { 60, 30 }; // Продолжительности
+
+            TimeSpan beginWorkingTime = new TimeSpan(8, 0, 0); // Время начала рабочего дня: 08:00
+            TimeSpan endWorkingTime = new TimeSpan(18, 0, 0);  // Время окончания рабочего дня: 18:00
+            int consultationTime = 30; // Время консультации (в минутах): 30
+
+            // Ожидаем исключение
+            Assert.Throws<ArgumentException>(() => Calculations.AvailablePeriods(startTimes, durations, beginWorkingTime, endWorkingTime, consultationTime));
+        }
+    }
+}

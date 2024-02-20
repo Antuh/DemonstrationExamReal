@@ -42,5 +42,13 @@ namespace RussianCosmeticsApp.pages
         {
             dg_Orders.ItemsSource = RussianCosmeticsEntities.GetContext().Order.ToList();
         }
+
+        private void btDelete_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Вы точно хотите удалить запись?", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            RussianCosmeticsEntities.GetContext().Order.Remove(dg_Orders.SelectedItem as Order);
+            RussianCosmeticsEntities.GetContext().SaveChanges();
+            MessageBox.Show("Удалено");
+        }
     }
 }

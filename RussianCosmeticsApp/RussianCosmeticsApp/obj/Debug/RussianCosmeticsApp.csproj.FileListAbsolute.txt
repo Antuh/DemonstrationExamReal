@@ -55,3 +55,5 @@ D:\Programmirovanie\Program\DemonstrationExamReal\RussianCosmeticsApp\RussianCos
 D:\Programmirovanie\Program\DemonstrationExamReal\RussianCosmeticsApp\RussianCosmeticsApp\obj\Debug\RussianC.28E893CF.Up2Date
 D:\Programmirovanie\Program\DemonstrationExamReal\RussianCosmeticsApp\RussianCosmeticsApp\obj\Debug\RussianCosmeticsApp.exe
 D:\Programmirovanie\Program\DemonstrationExamReal\RussianCosmeticsApp\RussianCosmeticsApp\obj\Debug\RussianCosmeticsApp.pdb
+D:\Programmirovanie\Program\DemonstrationExamReal\RussianCosmeticsApp\RussianCosmeticsApp\obj\Debug\pages\AddEditClientPage.g.cs
+D:\Programmirovanie\Program\DemonstrationExamReal\RussianCosmeticsApp\RussianCosmeticsApp\obj\Debug\pages\AddEditClientPage.baml
